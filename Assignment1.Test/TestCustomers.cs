@@ -50,6 +50,28 @@ namespace Assignment1.Test
         }
 
 
+        public void UpdateHans()
+        {
+            // Prepare
+            customerManager.AddHarald();
+            customerManager.AddHans();
+
+            var customerToLookFor = new Customer();
+            customerToLookFor.FirstName = "Hans";
+
+            var customerToUpdate = customerManager.Lookup(customerToLookFor)[0];
+            customerToUpdate.LastName = "Eriksson";
+
+            // Act
+            customerManager.Update(customerToUpdate);
+
+            // Assert 
+
+            Assert.AreEqual("Eriksson", customerListResult[1].LastName);
+
+        }
+
+
 
 
         
