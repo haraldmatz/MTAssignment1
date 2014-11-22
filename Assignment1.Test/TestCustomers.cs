@@ -1,38 +1,37 @@
-﻿using System.Collections.Generic;
-using Assignment1.Moq.Classes;
-using Assignment1.Moq.Interfaces;
+﻿using CustomerHandler.Classes;
 using NUnit.Framework;
-using Moq;
+
 
 namespace Assignment1.Test
 {
     [TestFixture]
     public class TestCustomers
     {
-
+        private CustomerManager customerManager;
         
         [SetUp]
         public void SetUp()
         {
-        
+            customerManager = new CustomerManager();
         }
 
 
         [TestCase]
-        public void TestAddHaraldToCustomerObject()
+        public void TestAddHaraldAndHans()
         {
-            var customerToAdd = new Customer();
-            customerToAdd.FirstName = "Harald";
-            Assert.AreEqual("Harald", customerToAdd.FirstName);
+            // Act
+            customerManager.AddHarald();
+            customerManager.AddHans();
 
-            var customerHandler = new Mock<ICustomerHandler>();
-            var dbContext = new DBContext(customerHandler.Object);
+            // Assert 
+            Assert.IsNotNull(customerManager);
 
-            dbContext.Add(customerToAdd);
-
-            customerHandler.Verify(h => h.AddCustomer(customerToAdd), Times.Exactly(1));
-
+            Assert.AreEqual("Harald", customerManager.Customers[0].FirstName);
+            Assert.AreEqual("hans.hansson@test.se", customerManager.Customers[1].Email);
         }
+
+        
+     
 
        
 
