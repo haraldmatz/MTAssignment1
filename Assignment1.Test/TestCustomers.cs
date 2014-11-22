@@ -21,8 +21,9 @@ namespace Assignment1.Test
         public void TestAddHaraldToCustomerObject()
         {
             var customerToAdd = new Customer();
-
+            customerToAdd.FirstName = "Harald";
             Assert.AreEqual("Harald", customerToAdd.FirstName);
+
 
 
         }
