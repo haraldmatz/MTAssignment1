@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Assignment1.Moq.Classes;
+using Assignment1.Moq.Interfaces;
 using NUnit.Framework;
 using Moq;
 
