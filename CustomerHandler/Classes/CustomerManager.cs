@@ -33,11 +33,24 @@ namespace CustomerHandler.Classes
 
             foreach (var customer in Customers)
             {
-               if (customer.FirstName==customerToLookFor.FirstName)
-                   resultCustomerList.Add(customer);
+                if (customer.FirstName == customerToLookFor.FirstName)
+                         resultCustomerList.Add(customer);
             }
-
+            
             return resultCustomerList;
+        }
+
+        /// <summary>
+        /// Assumtion that Email is unique for customer
+        /// </summary>
+        /// <param name="customerToUpdate"></param>
+        public void Update(Customer customerToUpdate)
+        {
+            for (int row = 0; row < Customers.Count; row++)
+            {
+                if (customerToUpdate.Email == Customers[row].Email)
+                    Customers[row] = customerToUpdate;
+            }
         }
     }
 }

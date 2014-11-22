@@ -66,8 +66,7 @@ namespace Assignment1.Test
             customerManager.Update(customerToUpdate);
 
             // Assert 
-
-            Assert.AreEqual("Eriksson", customerListResult[1].LastName);
+            Assert.AreEqual("Eriksson", customerManager.Customers[1].LastName);
 
         }
 
