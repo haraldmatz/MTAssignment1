@@ -24,6 +24,20 @@ namespace Assignment1.Test
             Assert.AreEqual("harald.matz@evry.com",  customer.Email );
 
         }
+
+        [TestCase]
+        public void TestAddHansHansson()
+        {
+
+            // Act
+            var customer = CustomerHelper.AddHans();
+
+            // Assert 
+            Assert.IsNotNull(customer);
+
+            Assert.AreEqual("hans.hansson@test.se", customer.Email);
+
+        }
         
  }
 }

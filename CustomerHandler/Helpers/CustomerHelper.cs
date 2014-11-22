@@ -18,5 +18,11 @@ namespace CustomerHandler.Helpers
 
             return customer;
         }
+
+
+        public static Customer AddHans()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
