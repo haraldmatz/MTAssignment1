@@ -30,7 +30,7 @@ namespace Assignment1.Test
 
             dbContext.Add(customerToAdd);
 
-            customerHandler.Verify(h => h.AddCustomer(), Times.Exactly(1));
+            customerHandler.Verify(h => h.AddCustomer(customerToAdd), Times.Exactly(1));
 
         }
 

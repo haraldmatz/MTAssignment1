@@ -1,5 +1,5 @@
 ﻿
-using System.Data.Common;
+
 using Assignment1.Moq.Interfaces;
 
 namespace Assignment1.Moq.Classes
@@ -15,7 +15,8 @@ namespace Assignment1.Moq.Classes
 
         public void Add(Customer customerToAdd)
         {
-            throw new System.NotImplementedException();
+            _customerHandler.AddCustomer(customerToAdd);
+               throw new System.NotImplementedException();
         }
     }
 }
