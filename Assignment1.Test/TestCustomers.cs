@@ -8,6 +8,8 @@ namespace Assignment1.Test
     {
         private List<Customer>  customers;
 
+
+        // Test info
         [SetUp]
         public void PrepareValue()
         {
