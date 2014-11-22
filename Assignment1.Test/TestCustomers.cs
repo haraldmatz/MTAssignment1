@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CustomerHandler.Helpers;
 using NUnit.Framework;
 
 namespace Assignment1.Test
