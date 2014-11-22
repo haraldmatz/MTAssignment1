@@ -41,6 +41,9 @@
     <Reference Include="GithubNugetDistributor">
       <HintPath>..\packages\github-nuget-distributor.GithubNugetDistributor.1.0.23\lib\net45\GithubNugetDistributor.exe</HintPath>
     </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.3.0.0-alpha-2\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
@@ -74,12 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CustomerHandler\CustomerHandler.csproj">
-      <Project>{bf4e7b14-aa21-4c78-af98-beab2892136a}</Project>
-      <Name>CustomerHandler</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Readme\Spring.Rest.txt" />
