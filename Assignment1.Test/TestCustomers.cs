@@ -9,7 +9,7 @@ namespace Assignment1.Test
         private List<Customer>  customers;
 
 
-        // Test info4
+        // Test info5
         [SetUp]
         public void PrepareValue()
         {
