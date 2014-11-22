@@ -83,6 +83,12 @@
     <Content Include="App_Readme\Spring.Social.Core.txt" />
     <Content Include="NuGet\NuGetPackage.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Assignment1.Moq\Assignment1.Moq.csproj">
+      <Project>{8853498f-8c5c-4673-be3e-66ac7b3d2ee5}</Project>
+      <Name>Assignment1.Moq</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
