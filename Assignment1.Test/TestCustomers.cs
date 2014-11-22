@@ -49,7 +49,7 @@ namespace Assignment1.Test
          
         }
 
-
+        [TestCase]
         public void UpdateHans()
         {
             // Prepare
