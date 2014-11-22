@@ -21,6 +21,8 @@ namespace Assignment1.Test
             // Assert 
             Assert.IsNotNull(customer);
 
+            Assert.AreEqual("harald.matz@evry.com",  customer.Email );
+
         }
         
  }
