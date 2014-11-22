@@ -39,13 +39,13 @@ namespace Assignment1.Test
             customerManager.AddHans();
 
             var customerToLookFor = new Customer();
-            var customerListResult = new List<Customer>();
+            customerToLookFor.FirstName = "Hans";
 
             // Act
-           customerListResult = customerManager.Lookup(customerToLookFor);
+           var customerListResult = customerManager.Lookup(customerToLookFor);
 
             // Assert 
-            Assert.AreEqual("Hans" ,customerListResult[0].FirstName);
+           Assert.AreEqual("Hans", customerListResult[0].FirstName);
          
         }
 

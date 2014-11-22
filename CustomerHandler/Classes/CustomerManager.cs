@@ -26,5 +26,18 @@ namespace CustomerHandler.Classes
             var customer = CustomerHelper.AddHans();
             Customers.Add(customer);
         }
+
+        public List<Customer> Lookup(Customer customerToLookFor)
+        {
+            var resultCustomerList = new List<Customer>();
+
+            foreach (var customer in Customers)
+            {
+               if (customer.FirstName==customerToLookFor.FirstName)
+                   resultCustomerList.Add(customer);
+            }
+
+            return resultCustomerList;
+        }
     }
 }
