@@ -16,7 +16,6 @@ namespace Assignment1.Moq.Classes
         public void Add(Customer customerToAdd)
         {
             _customerHandler.AddCustomer(customerToAdd);
-               throw new System.NotImplementedException();
         }
     }
 }
