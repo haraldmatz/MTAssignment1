@@ -24,7 +24,12 @@ namespace Assignment1.Test
             customerToAdd.FirstName = "Harald";
             Assert.AreEqual("Harald", customerToAdd.FirstName);
 
+            var customerHandler = new Mock<ICustomerHandler>();
+            var dbContext = new DBContext(customerHandler.Object);
 
+            dbContext.Add(customerToAdd);
+
+            customerHandler.Verify(h => h.AddCustomer(), Times.Exactly(1));
 
         }
 
