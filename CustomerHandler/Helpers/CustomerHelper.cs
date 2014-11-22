@@ -4,6 +4,7 @@ namespace CustomerHandler.Helpers
 {
     public static class CustomerHelper
     {
+        
         public static Customer AddHarald()
         {
             var customer = new Customer();
@@ -22,7 +23,17 @@ namespace CustomerHandler.Helpers
 
         public static Customer AddHans()
         {
-            throw new System.NotImplementedException();
+            var customer = new Customer();
+
+            customer.FirstName = "Hans";
+            customer.LastName = "Hansson";
+            customer.Address = "Sturegatan 5";
+            customer.City = "Solna";
+            customer.Zip = "144 48";
+            customer.Telephone = "+46 76 443 41 20";
+            customer.Email = "hans.hansson@test.se";
+
+            return customer;
         }
     }
 }

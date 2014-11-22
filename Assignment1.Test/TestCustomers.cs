@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CustomerHandler.Classes;
 using CustomerHandler.Helpers;
 using NUnit.Framework;
 
@@ -16,7 +17,7 @@ namespace Assignment1.Test
         {
   
             // Act
-            var customer = CustomerHelper.AddHarald();
+            var customer = CustomerManager.AddHarald();
 
             // Assert 
             Assert.IsNotNull(customer);
@@ -30,7 +31,7 @@ namespace Assignment1.Test
         {
 
             // Act
-            var customer = CustomerHelper.AddHans();
+            var customer = CustomerManager.AddHans();
 
             // Assert 
             Assert.IsNotNull(customer);
@@ -40,4 +41,6 @@ namespace Assignment1.Test
         }
         
  }
+
+    
 }
