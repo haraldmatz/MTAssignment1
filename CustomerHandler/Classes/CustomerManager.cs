@@ -1,19 +1,30 @@
 ﻿using System.Collections.Generic;
+using CustomerHandler.Helpers;
 
 namespace CustomerHandler.Classes
 {
     public class CustomerManager
-    {
-        
 
-        public static Customer AddHarald()
+
+    {
+
+
+        public List<Customer> Customers { get; set; }
+
+        public CustomerManager()
         {
-             throw new System.NotImplementedException();
+            Customers = new List<Customer>();
         }
 
-        public static Customer AddHans()
+        public void AddHarald()
         {
-            throw new System.NotImplementedException();
+            Customers.Add(CustomerHelper.AddHarald());
+        }
+
+        public void AddHans()
+        {
+            var customer = CustomerHelper.AddHans();
+            Customers.Add(customer);
         }
     }
 }

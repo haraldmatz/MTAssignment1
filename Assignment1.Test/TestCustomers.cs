@@ -8,36 +8,29 @@ namespace Assignment1.Test
     [TestFixture]
     public class TestCustomers
     {
-       
+
+        private CustomerManager customerManager;
+
         // Test info5
         [SetUp]
-     
-        [TestCase]
-        public void TestAddHaraldMatz()
+        public void SetUp()
         {
-  
-            // Act
-            var customer = CustomerManager.AddHarald();
-
-            // Assert 
-            Assert.IsNotNull(customer);
-
-            Assert.AreEqual("harald.matz@evry.com",  customer.Email );
-
+            customerManager = new CustomerManager();
         }
+
 
         [TestCase]
         public void TestAddHansHansson()
         {
-
-            // Act
-            var customer = CustomerManager.AddHans();
+           // Act
+            customerManager.AddHarald();
+            customerManager.AddHans();
 
             // Assert 
-            Assert.IsNotNull(customer);
-
-            Assert.AreEqual("hans.hansson@test.se", customer.Email);
-
+            Assert.IsNotNull(customerManager);
+           
+            Assert.AreEqual("Harald", customerManager.Customers[0].FirstName);
+            Assert.AreEqual("hans.hansson@test.se", customerManager.Customers[1].Email);
         }
         
  }
