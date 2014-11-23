@@ -39,12 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Customer.cs" />
     <Compile Include="Classes\DBContext.cs" />
+    <Compile Include="IDbContext.cs" />
     <Compile Include="Interfaces\ICustomerHandler.cs" />
+    <Compile Include="Interfaces\ICustomerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CustomerHandler\CustomerHandler.csproj">
+      <Project>{BF4E7B14-AA21-4C78-AF98-BEAB2892136A}</Project>
+      <Name>CustomerHandler</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -4,7 +4,7 @@ using Assignment1.Moq.Interfaces;
 using CustomerHandler.Classes;
 using NUnit.Framework;
 using Moq;
-using Customer = Assignment1.Moq.Classes.Customer;
+
 
 namespace Assignment1.Test
 {

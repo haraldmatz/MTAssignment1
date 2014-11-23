@@ -1,4 +1,4 @@
-﻿using Assignment1.Moq.Classes;
+﻿using CustomerHandler.Classes;
 
 namespace Assignment1.Moq.Interfaces
 {
