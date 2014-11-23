@@ -27,17 +27,16 @@ namespace CustomerHandler.Classes
             Customers.Add(customer);
         }
 
-        public List<Customer> Lookup(Customer customerToLookFor)
+        public Customer Lookup(string email)
         {
-            var resultCustomerList = new List<Customer>();
-
+          
             foreach (var customer in Customers)
             {
-                if (customer.FirstName == customerToLookFor.FirstName)
-                         resultCustomerList.Add(customer);
+                if (customer.Email == email)
+                    return customer;      
             }
             
-            return resultCustomerList;
+            return null;
         }
 
         /// <summary>
@@ -50,6 +49,15 @@ namespace CustomerHandler.Classes
             {
                 if (customerToUpdate.Email == Customers[row].Email)
                     Customers[row] = customerToUpdate;
+            }
+        }
+
+        public void Delete(string email)
+        {
+            for (int row = 0; row < Customers.Count; row++)
+            {
+                if (email == Customers[row].Email)
+                        Customers.RemoveAt(row);
             }
         }
     }

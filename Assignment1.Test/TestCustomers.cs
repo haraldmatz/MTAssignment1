@@ -38,16 +38,12 @@ namespace Assignment1.Test
             customerManager.AddHarald();
             customerManager.AddHans();
 
-            var customerToLookFor = new Customer();
-            customerToLookFor.FirstName = "Hans";
-
-            // Act
-           var customerListResult = customerManager.Lookup(customerToLookFor);
+          // Act
+            var customer = customerManager.Lookup("hans.hansson@test.se");
 
             // Assert 
-           Assert.AreEqual("Hans", customerListResult[0].FirstName);
-         
-        }
+           Assert.AreEqual("Hans", customer.FirstName);
+         }
 
         [TestCase]
         public void UpdateHans()
@@ -55,11 +51,8 @@ namespace Assignment1.Test
             // Prepare
             customerManager.AddHarald();
             customerManager.AddHans();
-
-            var customerToLookFor = new Customer();
-            customerToLookFor.FirstName = "Hans";
-
-            var customerToUpdate = customerManager.Lookup(customerToLookFor)[0];
+          
+            var customerToUpdate = customerManager.Lookup("hans.hansson@test.se");
             customerToUpdate.LastName = "Eriksson";
 
             // Act
@@ -71,23 +64,20 @@ namespace Assignment1.Test
         }
 
         [TestCase]
-        public void DeleteHans()
+        public void DeleteHarald()
         {
             // Prepare
             customerManager.AddHarald();
             customerManager.AddHans();
 
-            var customerToLookFor = new Customer();
-            customerToLookFor.FirstName = "Hans";
-
-            var customerToDelete = customerManager.Lookup(customerToLookFor)[0];
-
-
+      
             // Act
-            customerManager.Delete(customerToDelete);
+            customerManager.Delete("harald.matz@evry.com");
 
             // Assert 
-            Assert.AreEqual("Eriksson", customerManager.Customers[1].LastName);
+            var customerResult = customerManager.Lookup("harald.matz@evry.com");
+            Assert.IsNull(customerResult);
+
 
         }
 
