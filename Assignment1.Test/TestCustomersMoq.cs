@@ -17,27 +17,31 @@ namespace Assignment1.Test
         [SetUp]
         public void SetUp()
         {
+            
+            // Mock the Products Repository using Moq
+        }
+
+        [TestCase]
+        public void GetAllCustomers()
+        {
+
             // Get Customer list
             customerManager = new CustomerManager();
             customerManager.AddHarald();
             customerManager.AddHans();
 
-        
+
             // Mock the Products Repository using Moq
-           var mockCustomerRepository = new Mock<ICustomerRepository>();
+            var mockCustomerRepository = new Mock<ICustomerRepository>();
 
             // Return all the customers
             mockCustomerRepository.Setup(mr => mr.GetAllCusomers()).Returns(customerManager.Customers);
-        
-            // Mock the Products Repository using Moq
-        }
+            var MockCustomerRepository = mockCustomerRepository.Object;
 
-        [TestCase]
-        public List<Customer> GetAllCustomers()
-        {
-            var allCustomers = mockCustomerRepository.GetAllCusomers();
+            var allCustomers = MockCustomerRepository.GetAllCusomers();   
 
-            return allCustomers;
+
+           Assert.AreEqual(allCustomers, customerManager.Customers);
         }
 
 
