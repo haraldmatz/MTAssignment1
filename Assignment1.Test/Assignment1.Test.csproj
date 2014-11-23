@@ -74,7 +74,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="TestCustomersMoq.cs" />
-    <Compile Include="TestMoqCustomer.cs" />
     <Compile Include="TestCustomers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

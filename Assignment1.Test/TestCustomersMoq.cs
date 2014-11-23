@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Assignment1.Moq.Classes;
 using Assignment1.Moq.Interfaces;
 using CustomerHandler.Classes;
+using CustomerHandler.Helpers;
 using Moq;
 using NUnit.Framework;
 
@@ -12,7 +14,7 @@ namespace Assignment1.Test
     public class TestCustomersMoq
     {
         private CustomerManager customerManager;
-        ICustomerRepository mockCustomerRepository;
+        ICustomerRepository mockSetCustomerRepository;
 
         [SetUp]
         public void SetUp()
@@ -30,21 +32,49 @@ namespace Assignment1.Test
 
 
             // Mock the Products Repository using Moq
-            var mockCustomerRepository = new Mock<ICustomerRepository>();
+            var mockSetCustomerRepository = new Mock<ICustomerRepository>();
 
             // Return all the customers
-            mockCustomerRepository.Setup(mr => mr.GetAllCusomers()).Returns(customerManager.Customers);
-            var MockCustomerRepository = mockCustomerRepository.Object;
+            mockSetCustomerRepository.Setup(mr => mr.GetAllCusomers()).Returns(customerManager.Customers);
+            var mockCustomerRepository = mockSetCustomerRepository.Object;
             // Mock the Products Repository using Moq
-           
 
-            var allCustomers = MockCustomerRepository.GetAllCusomers();   
+
+            var allCustomers = mockCustomerRepository.GetAllCusomers();   
 
            Assert.AreEqual(allCustomers, customerManager.Customers);
         }
 
 
+        [TestCase]
+        public void TestAddHaraldToCustomers()
+        {
+            var customerToAdd = CustomerHelper.AddHarald();
 
+            // Get Customer list
+            customerManager = new CustomerManager();
+            customerManager.AddHarald();
+            customerManager.AddHans();
+
+
+            // Mock the Products Repository using Moq
+            var mockSetCustomerRepository = new Mock<ICustomerRepository>();
+
+            // Return all the customers
+            mockSetCustomerRepository.Setup(mr => mr.GetAllCusomers()).Returns(customerManager.Customers);
+           var  mockCustomerRepository = mockSetCustomerRepository.Object;
+            // Mock the Products Repository using Moq
+
+
+            var allCustomers = mockCustomerRepository.GetAllCusomers();
+
+            Assert.AreEqual(allCustomers, customerManager.Customers);
+            mockSetCustomerRepository.Verify(h => h.AddCustomer(customerToAdd), Times.Exactly(1));
+
+        }
+
+
+       
 
 
 

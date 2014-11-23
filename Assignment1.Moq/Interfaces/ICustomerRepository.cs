@@ -8,7 +8,7 @@ namespace Assignment1.Moq.Interfaces
     {
         List<Customer> GetAllCusomers();
 
-       
+        void AddCustomer(Customer customer);
 
     }
 }
