@@ -49,26 +49,17 @@ namespace Assignment1.Test
         [TestCase]
         public void TestAddHaraldToCustomers()
         {
-            var customerToAdd = CustomerHelper.AddHarald();
-
-            // Get Customer list
-            customerManager = new CustomerManager();
-            customerManager.AddHarald();
-            customerManager.AddHans();
-
-
-            // Mock the Products Repository using Moq
+            /// Mock the Products Repository using Moq
             var mockSetCustomerRepository = new Mock<ICustomerRepository>();
 
+            var customerToAdd = CustomerHelper.AddHarald();
+            mockSetCustomerRepository.Setup(c => c.AddCustomer(customerToAdd));
+
             // Return all the customers
-            mockSetCustomerRepository.Setup(mr => mr.GetAllCusomers()).Returns(customerManager.Customers);
-           var  mockCustomerRepository = mockSetCustomerRepository.Object;
+            var mockCustomerRepository = mockSetCustomerRepository.Object;
             // Mock the Products Repository using Moq
+            mockCustomerRepository.AddCustomer(customerToAdd);
 
-
-            var allCustomers = mockCustomerRepository.GetAllCusomers();
-
-            Assert.AreEqual(allCustomers, customerManager.Customers);
             mockSetCustomerRepository.Verify(h => h.AddCustomer(customerToAdd), Times.Exactly(1));
 
         }
