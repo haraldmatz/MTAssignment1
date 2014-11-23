@@ -70,6 +70,27 @@ namespace Assignment1.Test
 
         }
 
+        [TestCase]
+        public void DeleteHans()
+        {
+            // Prepare
+            customerManager.AddHarald();
+            customerManager.AddHans();
+
+            var customerToLookFor = new Customer();
+            customerToLookFor.FirstName = "Hans";
+
+            var customerToDelete = customerManager.Lookup(customerToLookFor)[0];
+
+
+            // Act
+            customerManager.Delete(customerToDelete);
+
+            // Assert 
+            Assert.AreEqual("Eriksson", customerManager.Customers[1].LastName);
+
+        }
+
       
 
 
