@@ -88,11 +88,11 @@ namespace Assignment1.Test
             var mockCustomerRepository = mockSetCustomerRepository.Object;
 
             // Act
-            mockCustomerRepository.LookUp(customerToUpdate.Email);
+            mockCustomerRepository.UpdateCustomer(customerToUpdate);
 
             // Assert
             mockSetCustomerRepository.Verify(h => h.UpdateCustomer(customerToUpdate), Times.Exactly(1));
-            Assert.AreEqual("Mjölnerbacken 34",mockCustomerRepository.UpdateCustomer(customerToUpdate).FirstName);
+            Assert.AreEqual("Mjölnerbacken 34",mockCustomerRepository.UpdateCustomer(customerToUpdate).Address);
         }
 
         [TestCase]
