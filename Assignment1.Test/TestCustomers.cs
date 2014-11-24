@@ -18,6 +18,25 @@ namespace Assignment1.Test
 
 
         [TestCase]
+        public void GetAllCustomers()
+        {
+            // Prepare
+            customerManager.AddHarald();
+            customerManager.AddHans();
+
+            // act
+            List<Customer> customersResultList = customerManager.GetAllCustomers();
+
+            // Assert 
+            Assert.IsNotNull(customersResultList);
+            Assert.AreEqual(2, customersResultList.Count);
+            Assert.AreEqual("Harald", customerManager.Customers[0].FirstName);
+            Assert.AreEqual("hans.hansson@test.se", customerManager.Customers[1].Email);
+        }
+
+
+
+        [TestCase]
         public void TestAddHaraldAndHans()
         {
             // Act
