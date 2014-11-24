@@ -73,6 +73,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="TestConsoleApplication.cs" />
     <Compile Include="TestCustomersMoq.cs" />
     <Compile Include="TestCustomers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +90,10 @@
     <ProjectReference Include="..\Assignment1.Moq\Assignment1.Moq.csproj">
       <Project>{8853498f-8c5c-4673-be3e-66ac7b3d2ee5}</Project>
       <Name>Assignment1.Moq</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Assignment1.Util\Assignment1.Util.csproj">
+      <Project>{a6112842-4f1a-4f79-b24c-175c9d521a1b}</Project>
+      <Name>Assignment1.Util</Name>
     </ProjectReference>
     <ProjectReference Include="..\CustomerHandler\CustomerHandler.csproj">
       <Project>{bf4e7b14-aa21-4c78-af98-beab2892136a}</Project>
