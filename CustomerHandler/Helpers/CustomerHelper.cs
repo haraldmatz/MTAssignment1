@@ -5,7 +5,7 @@ namespace CustomerHandler.Helpers
     public static class CustomerHelper
     {
         
-        public static Customer AddHarald()
+        public static Customer GetHarald()
         {
             var customer = new Customer();
 
@@ -21,7 +21,7 @@ namespace CustomerHandler.Helpers
         }
 
 
-        public static Customer AddHans()
+        public static Customer GetHans()
         {
             var customer = new Customer();
 

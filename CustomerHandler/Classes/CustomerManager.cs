@@ -4,10 +4,7 @@ using CustomerHandler.Helpers;
 namespace CustomerHandler.Classes
 {
     public class CustomerManager
-
-
     {
-
 
         public List<Customer> Customers { get; set; }
 
@@ -18,18 +15,17 @@ namespace CustomerHandler.Classes
 
         public void AddHarald()
         {
-            Customers.Add(CustomerHelper.AddHarald());
+            Customers.Add(CustomerHelper.GetHarald());
         }
 
         public void AddHans()
         {
-            var customer = CustomerHelper.AddHans();
+            var customer = CustomerHelper.GetHans();
             Customers.Add(customer);
         }
 
         public Customer Lookup(string email)
         {
-          
             foreach (var customer in Customers)
             {
                 if (customer.Email == email)

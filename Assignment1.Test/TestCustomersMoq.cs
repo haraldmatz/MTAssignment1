@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Assignment1.Moq.Classes;
+﻿
+using System;
 using Assignment1.Moq.Interfaces;
 using CustomerHandler.Classes;
 using CustomerHandler.Helpers;
@@ -19,7 +18,7 @@ namespace Assignment1.Test
         [SetUp]
         public void SetUp()
         {
-            
+            customerManager = new CustomerManager();
         }
 
         [TestCase]
@@ -29,8 +28,7 @@ namespace Assignment1.Test
             customerManager = new CustomerManager();
             customerManager.AddHarald();
             customerManager.AddHans();
-
-
+            
             // Mock the Products Repository using Moq
             var mockSetCustomerRepository = new Mock<ICustomerRepository>();
 
@@ -45,14 +43,13 @@ namespace Assignment1.Test
            Assert.AreEqual(allCustomers, customerManager.Customers);
         }
 
-
         [TestCase]
         public void TestAddHaraldToCustomers()
         {
             /// Mock the Products Repository using Moq
             var mockSetCustomerRepository = new Mock<ICustomerRepository>();
 
-            var customerToAdd = CustomerHelper.AddHarald();
+            var customerToAdd = CustomerHelper.GetHarald();
             mockSetCustomerRepository.Setup(c => c.AddCustomer(customerToAdd));
 
             // Return all the customers
@@ -64,21 +61,27 @@ namespace Assignment1.Test
 
         }
 
+        [TestCase]
+        public void DeleteHans()
+        {
+            //// Prepare
+            var mockSetCustomerRepository = new Mock<ICustomerRepository>();
+
+            var customerToDelete = CustomerHelper.GetHans();
+            mockSetCustomerRepository.Setup(c => c.DeleteCustomer(customerToDelete));
+
+            var mockCustomerRepository = mockSetCustomerRepository.Object;
+       
+            
+            // Act
+            mockCustomerRepository.DeleteCustomer(customerToDelete);
+
+            // Assert
+            mockSetCustomerRepository.Verify(h => h.AddCustomer(customerToDelete), Times.Exactly(1));
+
+        }
 
        
-
-
-
-
-
-
-        
-     
-
-       
-
 
     }
-
-    
 }
