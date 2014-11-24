@@ -13,8 +13,7 @@ namespace Assignment1.Test
     public class TestCustomersMoq
     {
         private CustomerManager customerManager;
-        ICustomerRepository mockSetCustomerRepository;
-
+      
         [SetUp]
         public void SetUp()
         {
@@ -24,29 +23,27 @@ namespace Assignment1.Test
         [TestCase]
         public void GetAllCustomers()
         {
-            // Get Customer list
+            //Prepare - Fill the customer list
             customerManager = new CustomerManager();
             customerManager.AddHarald();
             customerManager.AddHans();
             
-            // Mock the Products Repository using Moq
+            // Create Mock object
             var mockSetCustomerRepository = new Mock<ICustomerRepository>();
-
-            // Return all the customers
             mockSetCustomerRepository.Setup(mr => mr.GetAllCusomers()).Returns(customerManager.Customers);
             var mockCustomerRepository = mockSetCustomerRepository.Object;
-            // Mock the Products Repository using Moq
 
-
+            // Act
             var allCustomers = mockCustomerRepository.GetAllCusomers();   
 
-           Assert.AreEqual(allCustomers, customerManager.Customers);
+            // Assert
+            mockSetCustomerRepository.Verify(h => h.GetAllCusomers(), Times.Exactly(1));
+            Assert.AreEqual(allCustomers, customerManager.Customers);
         }
 
         [TestCase]
         public void TestAddHaraldToCustomers()
         {
-            /// Mock the Products Repository using Moq
             var mockSetCustomerRepository = new Mock<ICustomerRepository>();
 
             var customerToAdd = CustomerHelper.GetHarald();
@@ -62,6 +59,23 @@ namespace Assignment1.Test
         }
 
         [TestCase]
+        public void LookUpHans()
+        {
+            //// Prepare
+            var mockSetCustomerRepository = new Mock<ICustomerRepository>();
+            var customerTLookup = CustomerHelper.GetHans();
+            mockSetCustomerRepository.Setup(c => c.LookUp(customerTLookup.Email));
+            var mockCustomerRepository = mockSetCustomerRepository.Object;
+
+            // Act
+            mockCustomerRepository.LookUp(customerTLookup.Email);
+
+            // Assert
+            mockSetCustomerRepository.Verify(h => h.LookUp(customerTLookup.Email), Times.Exactly(1));
+        }
+
+
+        [TestCase]
         public void DeleteHans()
         {
             //// Prepare
@@ -69,13 +83,15 @@ namespace Assignment1.Test
             var customerToDelete = CustomerHelper.GetHans();
             mockSetCustomerRepository.Setup(c => c.DeleteCustomer(customerToDelete));
             var mockCustomerRepository = mockSetCustomerRepository.Object;
-       
+
             // Act
             mockCustomerRepository.DeleteCustomer(customerToDelete);
 
             // Assert
             mockSetCustomerRepository.Verify(h => h.DeleteCustomer(customerToDelete), Times.Exactly(1));
         }
+
+
 
        
 
