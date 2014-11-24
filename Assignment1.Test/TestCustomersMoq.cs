@@ -66,19 +66,15 @@ namespace Assignment1.Test
         {
             //// Prepare
             var mockSetCustomerRepository = new Mock<ICustomerRepository>();
-
             var customerToDelete = CustomerHelper.GetHans();
             mockSetCustomerRepository.Setup(c => c.DeleteCustomer(customerToDelete));
-
             var mockCustomerRepository = mockSetCustomerRepository.Object;
        
-            
             // Act
             mockCustomerRepository.DeleteCustomer(customerToDelete);
 
             // Assert
-            mockSetCustomerRepository.Verify(h => h.AddCustomer(customerToDelete), Times.Exactly(1));
-
+            mockSetCustomerRepository.Verify(h => h.DeleteCustomer(customerToDelete), Times.Exactly(1));
         }
 
        
