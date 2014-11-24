@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Assignment1.Util.Helpers;
 using CustomerHandler.Classes;
 using NUnit.Framework;
 
@@ -13,11 +14,10 @@ namespace Assignment1.Test
         public void TestMenu()
         {
             // Act 
-            string menu = GetMenu();
+            string menu = MenuHelper.GetMenu();
 
             // Assert
-            Assert.AreEqual("Add Customer",menu.Substring(0,12));
-
+            Assert.AreEqual("1. Add Customer",menu.Substring(0,15));
         }
     }
 }
