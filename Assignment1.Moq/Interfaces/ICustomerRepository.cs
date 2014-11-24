@@ -11,5 +11,7 @@ namespace Assignment1.Moq.Interfaces
         void AddCustomer(Customer customer);
 
         void DeleteCustomer(Customer customerToDelete);
+        
+        Customer LookUp(string email);
     }
 }

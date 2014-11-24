@@ -1,5 +1,4 @@
 ﻿
-using System;
 using Assignment1.Moq.Interfaces;
 using CustomerHandler.Classes;
 using CustomerHandler.Helpers;
@@ -44,18 +43,19 @@ namespace Assignment1.Test
         [TestCase]
         public void TestAddHaraldToCustomers()
         {
-            var mockSetCustomerRepository = new Mock<ICustomerRepository>();
-
+            // Prepare
             var customerToAdd = CustomerHelper.GetHarald();
+
+            // Create Mock object
+            var mockSetCustomerRepository = new Mock<ICustomerRepository>();
             mockSetCustomerRepository.Setup(c => c.AddCustomer(customerToAdd));
-
-            // Return all the customers
             var mockCustomerRepository = mockSetCustomerRepository.Object;
-            // Mock the Products Repository using Moq
+           
+            // Act
             mockCustomerRepository.AddCustomer(customerToAdd);
-
+            
+            // Assert
             mockSetCustomerRepository.Verify(h => h.AddCustomer(customerToAdd), Times.Exactly(1));
-
         }
 
         [TestCase]
@@ -63,16 +63,17 @@ namespace Assignment1.Test
         {
             //// Prepare
             var mockSetCustomerRepository = new Mock<ICustomerRepository>();
-            var customerTLookup = CustomerHelper.GetHans();
-            mockSetCustomerRepository.Setup(c => c.LookUp(customerTLookup.Email));
+            var customerToLookup = CustomerHelper.GetHans();
+            mockSetCustomerRepository.Setup(c => c.LookUp(customerToLookup.Email)).Returns(customerToLookup);
             var mockCustomerRepository = mockSetCustomerRepository.Object;
 
             // Act
-            mockCustomerRepository.LookUp(customerTLookup.Email);
+            mockCustomerRepository.LookUp(customerToLookup.Email);
 
             // Assert
-            mockSetCustomerRepository.Verify(h => h.LookUp(customerTLookup.Email), Times.Exactly(1));
-        }
+            mockSetCustomerRepository.Verify(h => h.LookUp(customerToLookup.Email), Times.Exactly(1));
+            Assert.AreEqual("Hans", customerToLookup.FirstName);
+         }
 
 
         [TestCase]
