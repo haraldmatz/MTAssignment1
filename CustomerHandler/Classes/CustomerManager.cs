@@ -56,5 +56,10 @@ namespace CustomerHandler.Classes
                         Customers.RemoveAt(row);
             }
         }
+
+        public List<Customer> GetAllCustomers()
+        {
+            return Customers;
+        }
     }
 }
