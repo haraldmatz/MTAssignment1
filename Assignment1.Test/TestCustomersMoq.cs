@@ -1,4 +1,5 @@
 ﻿
+using System.Dynamic;
 using Assignment1.Moq.Interfaces;
 using CustomerHandler.Classes;
 using CustomerHandler.Helpers;
@@ -61,9 +62,11 @@ namespace Assignment1.Test
         [TestCase]
         public void LookUpHans()
         {
-            //// Prepare
-            var mockSetCustomerRepository = new Mock<ICustomerRepository>();
+            // Prepare
             var customerToLookup = CustomerHelper.GetHans();
+ 
+            // Create mock object
+            var mockSetCustomerRepository = new Mock<ICustomerRepository>();
             mockSetCustomerRepository.Setup(c => c.LookUp(customerToLookup.Email)).Returns(customerToLookup);
             var mockCustomerRepository = mockSetCustomerRepository.Object;
 
@@ -75,13 +78,31 @@ namespace Assignment1.Test
             Assert.AreEqual("Hans", customerToLookup.FirstName);
          }
 
+        [TestCase]
+        public void UpdateHarald()
+        {
+            //// Prepare
+            var mockSetCustomerRepository = new Mock<ICustomerRepository>();
+            var customerToUpdate = CustomerHelper.GetHarald();
+            mockSetCustomerRepository.Setup(c => c.UpdateCustomer(customerToUpdate)).Returns(customerToUpdate);
+            var mockCustomerRepository = mockSetCustomerRepository.Object;
+
+            // Act
+            mockCustomerRepository.LookUp(customerToUpdate.Email);
+
+            // Assert
+            mockSetCustomerRepository.Verify(h => h.UpdateCustomer(customerToUpdate), Times.Exactly(1));
+            Assert.AreEqual("Mjölnerbacken 34",mockCustomerRepository.UpdateCustomer(customerToUpdate).FirstName);
+        }
 
         [TestCase]
         public void DeleteHans()
         {
-            //// Prepare
-            var mockSetCustomerRepository = new Mock<ICustomerRepository>();
+            // Prepare
             var customerToDelete = CustomerHelper.GetHans();
+
+            // Create mock object
+            var mockSetCustomerRepository = new Mock<ICustomerRepository>();
             mockSetCustomerRepository.Setup(c => c.DeleteCustomer(customerToDelete));
             var mockCustomerRepository = mockSetCustomerRepository.Object;
 
@@ -91,10 +112,5 @@ namespace Assignment1.Test
             // Assert
             mockSetCustomerRepository.Verify(h => h.DeleteCustomer(customerToDelete), Times.Exactly(1));
         }
-
-
-
-       
-
     }
 }
