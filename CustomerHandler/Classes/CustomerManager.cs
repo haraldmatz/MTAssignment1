@@ -57,6 +57,15 @@ namespace CustomerHandler.Classes
             }
         }
 
+        public static List<Customer> GetHaraldAndHans()
+        {
+            var customerList = new List<Customer>();
+            customerList.Add(CustomerHelper.GetHarald());
+            customerList.Add(CustomerHelper.GetHans());
+           
+            return customerList;
+        }
+
         public List<Customer> GetAllCustomers()
         {
             return Customers;

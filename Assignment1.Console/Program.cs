@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using Assignment1.Util.Helpers;
+using CustomerHandler.Classes;
+using CustomerHandler.Helpers;
 
 namespace Assignment1.Cons
 {
-    class Program
+    public class Program
     {
+        public static List<Customer> Customers;
+        
         // Does not need testing because it is run always when manual testing.
         private static void Main(string[] args)
         {

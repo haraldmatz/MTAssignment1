@@ -37,7 +37,28 @@ namespace Assignment1.Test
             Assert.AreEqual("Add Customer - Not implemented yet", reply.Substring(0, 34));
         }
 
-        
+        [TestCase]
+        public void TestInput_UpdateCustomer()
+        {
+            // Act 
+            string reply = MenuHelper.HandleInput("2");
+
+            // Assert
+            Assert.AreEqual("Update Customer - Not implemented yet", reply.Substring(0, 37));
+        }
+
+       
+
+       [TestCase]
+        public void TestInput_DeleteCustomer()
+        {
+            // Act 
+            string reply = MenuHelper.HandleInput("3");
+
+            // Assert
+            Assert.AreEqual("Delete Customer - Not implemented yet", reply.Substring(0, 37));
+        }
+
         [TestCase]
         public void TestInput_ListCustomers()
         {
@@ -50,50 +71,6 @@ namespace Assignment1.Test
 
             // Assert
             Assert.AreEqual("1. Harald", reply.Substring(0,9));
-        }
-
-
-        [TestCase]
-        public void TestShowCustomersThatCanBeDeleted()
-        {
-            // Prepare
-            customerManager.AddHarald();
-            customerManager.AddHans();
-
-            // Act 
-            string reply = MenuHelper.HandleInput("3");
-
-            // Assert
-            Assert.AreEqual("Choose", reply.Substring(0, 6));
-        }
-
-        [TestCase]
-        public void TestShowCustomersThatCanBeUpdated()
-        {
-            // Prepare
-            customerManager.AddHarald();
-            customerManager.AddHans();
-
-            // Act 
-            string reply = MenuHelper.HandleInput("3");
-
-            // Assert
-            Assert.AreEqual("Choose", reply.Substring(0, 6));
-        }
-
-        [TestCase]
-        public void UpdateCustomer()
-        {
-            // Prepare
-            customerManager.AddHarald();
-            customerManager.AddHans();
-
-            // Act 
-            string reply = MenuHelper.UpdateCustomer("1","Salomonsson");
-
-
-            // Assert
-            Assert.AreEqual(customerManager.Customers[0].LastName, "Salomonsson");
         }
 
         [TestCase]

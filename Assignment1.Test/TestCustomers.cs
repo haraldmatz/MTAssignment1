@@ -35,19 +35,32 @@ namespace Assignment1.Test
         }
 
 
+        [TestCase]
+        public void GetHansAndHarald()
+        {
+            
+            // act
+            List<Customer> customersResultList = CustomerManager.GetHaraldAndHans();
+            
+
+            // Assert 
+            Assert.IsNotNull(customersResultList);
+            Assert.AreEqual(2, customersResultList.Count);
+            Assert.AreEqual("Harald", customersResultList[0].FirstName);
+            Assert.AreEqual("hans.hansson@test.se", customersResultList[1].Email);
+        }
 
         [TestCase]
         public void TestAddHaraldAndHans()
         {
             // Act
-            customerManager.AddHarald();
-            customerManager.AddHans();
+            var customerList = CustomerManager.GetHaraldAndHans();
 
             // Assert 
-            Assert.IsNotNull(customerManager);
+            Assert.IsNotNull(customerList);
 
-            Assert.AreEqual("Harald", customerManager.Customers[0].FirstName);
-            Assert.AreEqual("hans.hansson@test.se", customerManager.Customers[1].Email);
+            Assert.AreEqual("Harald", customerList[0].FirstName);
+            Assert.AreEqual("hans.hansson@test.se", customerList[1].Email);
         }
 
         [TestCase]
