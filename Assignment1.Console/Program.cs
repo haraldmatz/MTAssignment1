@@ -10,5 +10,7 @@ namespace Assignment1.Cons
             Console.WriteLine(MenuHelper.GetMenu());
             Console.ReadKey();
         }
+
+        
     }
 }

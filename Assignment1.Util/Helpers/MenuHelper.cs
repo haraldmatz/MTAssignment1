@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Text;
+using CustomerHandler.Classes;
 
 namespace Assignment1.Util.Helpers
 {
@@ -35,11 +36,30 @@ namespace Assignment1.Util.Helpers
                    return AddCustomer();
                     break;
 
+                case "2":
+                    return ListCustomers();
+
 
                 default:
                     return "";
                     break;
             }
+        }
+
+        public static string ListCustomers()
+        {
+            var sb = new StringBuilder();
+            var customerManager = new CustomerManager();
+            customerManager.AddHarald();
+            customerManager.AddHans();
+
+            foreach (var customer in customerManager.Customers)
+            {
+                sb.Append(customer.FirstName + " " + customer.LastName + "\n");    
+            }
+            
+            sb.Append("\n\nPress any key\n");
+            return sb.ToString();
         }
     }
 }
