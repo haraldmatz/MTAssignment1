@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using CustomerHandler.Classes;
 
@@ -13,7 +14,8 @@ namespace Assignment1.Util.Helpers
             sb.Append("1. Add Customer - Not implemented yet \n");
             sb.Append("2. Update Customer Last Name\n");
             sb.Append("3. Delete Customer\n");
-            sb.Append("4. List Customers\n\n");
+            sb.Append("4. List Customers\n");
+            sb.Append("X. Exit program\n\n");
             sb.Append("Choose figures 1 to 4.");
 
             return sb.ToString();
@@ -27,21 +29,25 @@ namespace Assignment1.Util.Helpers
             return sb.ToString();
         }
 
-
-        public static string HandleInput(string inputKey)
+        public static string HandleInput(ConsoleKeyInfo key)
         {
-            switch (inputKey.ToUpper())
+            switch (key.KeyChar.ToString().ToUpper())
             {
                 case "1":
                    return AddCustomer();
                     break;
 
-                case "2":
+                case "4":
                     return ListCustomers();
+                    break;
 
+                case "X":
+                    Environment.Exit(0);
+                    return "";
+                    break;
 
                 default:
-                    return "";
+                    return GetMenu();
                     break;
             }
         }
