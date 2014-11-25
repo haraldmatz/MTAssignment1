@@ -7,6 +7,9 @@ namespace Assignment1.Util.Helpers
 {
     public static class MenuHelper
     {
+        private static bool deleteCustomer;
+        private static bool updateCustomer;
+
         public static string GetMenu()
         {
             var sb = new StringBuilder();
@@ -30,17 +33,23 @@ namespace Assignment1.Util.Helpers
 
         public static string HandleInput(string key)
         {
+           
+            updateCustomer = false;
+            deleteCustomer = false;
             switch (key.ToUpper())
             {
                 case "1":
                    return AddCustomer();
+                    
                     break;
 
                 case "2":
-                    return UpdateCustomersLastName();
+                    updateCustomer = true;
+                    return ShowCustomersThatCanBeUpdated();
                     break;
 
                 case "3":
+                    deleteCustomer = true;
                     return ShowCustomersThatCanBeDeleted();
                     break;
 
@@ -82,8 +91,14 @@ namespace Assignment1.Util.Helpers
 
 
         public static string ShowCustomersThatCanBeDeleted()
-        { 
-            return ("Choose the number Delete Customer\n") + ListCustomers();
+        {
+
+            return ("Choose the number of the customer to delete\n") + ListCustomers();
+        }
+
+        public static string ShowCustomersThatCanBeUpdated()
+        {
+            return ("Choose the number of the customer to update\n") + ListCustomers();
         }
     }
 }

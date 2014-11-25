@@ -68,6 +68,35 @@ namespace Assignment1.Test
         }
 
         [TestCase]
+        public void TestShowCustomersThatCanBeUpdated()
+        {
+            // Prepare
+            customerManager.AddHarald();
+            customerManager.AddHans();
+
+            // Act 
+            string reply = MenuHelper.HandleInput("3");
+
+            // Assert
+            Assert.AreEqual("Choose", reply.Substring(0, 6));
+        }
+
+        [TestCase]
+        public void UpdateCustomer()
+        {
+            // Prepare
+            customerManager.AddHarald();
+            customerManager.AddHans();
+
+            // Act 
+            string reply = MenuHelper.UpdateCustomer("1","Salomonsson");
+
+
+            // Assert
+            Assert.AreEqual(customerManager.Customers[0].LastName, "Salomonsson");
+        }
+
+        [TestCase]
         public void TestInput_AddOtherIpunt()
         {
             // Act 
