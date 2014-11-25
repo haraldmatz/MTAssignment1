@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using Assignment1.Util.Helpers;
 using CustomerHandler.Classes;
 using NUnit.Framework;
@@ -47,7 +48,7 @@ namespace Assignment1.Test
             customerManager.AddHans();
 
             // Act 
-            string reply = MenuHelper.HandleInput("2");
+            string reply = MenuHelper.HandleInput("4");
 
             // Assert
             Assert.AreEqual("Harald", reply.Substring(0,6));
@@ -60,7 +61,7 @@ namespace Assignment1.Test
             string reply = MenuHelper.HandleInput("XYZ");
 
             // Assert
-            Assert.AreEqual("", reply);
+            Assert.AreEqual("1. Add Customer", reply.Substring(0, 15));
         }
     }
 }

@@ -16,9 +16,7 @@ namespace Assignment1.Cons
         {
             Console.Clear();
             Console.WriteLine(menu);
-            HandleMenu( MenuHelper.HandleInput(Console.ReadKey()));
+            HandleMenu( MenuHelper.HandleInput(Console.ReadKey().KeyChar.ToString()));
         }
-
-
     }
 }

@@ -29,9 +29,9 @@ namespace Assignment1.Util.Helpers
             return sb.ToString();
         }
 
-        public static string HandleInput(ConsoleKeyInfo key)
+        public static string HandleInput(string key)
         {
-            switch (key.KeyChar.ToString().ToUpper())
+            switch (key.ToUpper())
             {
                 case "1":
                    return AddCustomer();
