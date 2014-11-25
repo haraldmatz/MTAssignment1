@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerHandler", "Customer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment1.Moq", "Assignment1.Moq\Assignment1.Moq.csproj", "{8853498F-8C5C-4673-BE3E-66AC7B3D2EE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment1.Console", "Assignment1.Console\Assignment1.Console.csproj", "{45BD4664-64A3-44ED-83E7-1EA03A100DA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment1.Cons", "Assignment1.Console\Assignment1.Cons.csproj", "{45BD4664-64A3-44ED-83E7-1EA03A100DA4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment1.Util", "Assignment1.Util\Assignment1.Util.csproj", "{A6112842-4F1A-4F79-B24C-175C9D521A1B}"
 EndProject

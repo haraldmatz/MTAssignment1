@@ -12,7 +12,7 @@ namespace Assignment1.Util.Helpers
             sb.Append("2. Update Customer Last Name\n");
             sb.Append("3. Delete Customer\n");
             sb.Append("4. List Customers\n\n");
-            sb.Append("Choose figures 1 to 4 follows by enter");
+            sb.Append("Choose figures 1 to 4.");
 
             return sb.ToString();
         }

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Assignment1.Util.Helpers;
-using CustomerHandler.Classes;
+﻿using Assignment1.Util.Helpers;
 using NUnit.Framework;
 
 
@@ -18,6 +16,16 @@ namespace Assignment1.Test
 
             // Assert
             Assert.AreEqual("1. Add Customer",menu.Substring(0,15));
+        }
+
+        [TestCase]
+        public void TestInput_AddCustomer()
+        {
+            // Act 
+            string reply = MenuHelper.HandleInput("1");
+
+            // Assert
+            Assert.AreEqual("Add Customer is not implemented", reply.Substring(0, 31));
         }
     }
 }

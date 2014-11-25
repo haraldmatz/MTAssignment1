@@ -1,15 +1,14 @@
-﻿
-namespace Assignment1.Console
+﻿using System;
+using Assignment1.Util.Helpers;
+
+namespace Assignment1.Cons
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-
-            
+            Console.WriteLine(MenuHelper.GetMenu());
+            Console.ReadKey();
         }
-
-        
-
     }
 }
