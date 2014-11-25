@@ -25,7 +25,17 @@ namespace Assignment1.Test
             string reply = MenuHelper.HandleInput("1");
 
             // Assert
-            Assert.AreEqual("Add Customer is not implemented", reply.Substring(0, 31));
+            Assert.AreEqual("Add Customer - Not implemented yet", reply.Substring(0, 34));
+        }
+
+        [TestCase]
+        public void TestInput_AddOtherIpunt()
+        {
+            // Act 
+            string reply = MenuHelper.HandleInput("XYZ");
+
+            // Assert
+            Assert.AreEqual("", reply);
         }
     }
 }
