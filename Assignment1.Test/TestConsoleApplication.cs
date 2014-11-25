@@ -49,12 +49,12 @@ namespace Assignment1.Test
             string reply = MenuHelper.HandleInput("4");
 
             // Assert
-            Assert.AreEqual("Harald", reply.Substring(0,6));
+            Assert.AreEqual("1. Harald", reply.Substring(0,9));
         }
 
 
         [TestCase]
-        public void TestInput_DeleteCustomer()
+        public void TestShowCustomersThatCanBeDeleted()
         {
             // Prepare
             customerManager.AddHarald();
@@ -64,7 +64,7 @@ namespace Assignment1.Test
             string reply = MenuHelper.HandleInput("3");
 
             // Assert
-            Assert.AreEqual("1. Harald", reply.Substring(0, 9));
+            Assert.AreEqual("Choose", reply.Substring(0, 6));
         }
 
         [TestCase]

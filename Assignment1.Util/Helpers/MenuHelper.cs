@@ -35,7 +35,11 @@ namespace Assignment1.Util.Helpers
                 case "1":
                    return AddCustomer();
                     break;
-       
+
+                case "3":
+                    return ShowCustomersThatCanBeDeleted();
+                    break;
+
                 case "4":
                     return ListCustomers();
                     break;
@@ -59,13 +63,23 @@ namespace Assignment1.Util.Helpers
             customerManager.AddHarald();
             customerManager.AddHans();
 
-            foreach (var customer in customerManager.Customers)
+    
+            Customer customer;
+
+            for (int row=1; row<=customerManager.Customers.Count; row++)
             {
-                sb.Append(customer.FirstName + " " + customer.LastName + "\n");    
+                customer = customerManager.Customers[row - 1];
+                sb.Append(row + ". " + customer.FirstName + " " + customer.LastName + "\n");    
             }
             
             sb.Append("\n\nPress any key\n");
             return sb.ToString();
+        }
+
+
+        public static string ShowCustomersThatCanBeDeleted()
+        { 
+            return ("Choose the number Delete Customer\n") + ListCustomers();
         }
     }
 }
