@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using CustomerHandler.Classes;
 
@@ -36,11 +35,12 @@ namespace Assignment1.Util.Helpers
                 case "1":
                    return AddCustomer();
                     break;
-
+       
                 case "4":
                     return ListCustomers();
                     break;
 
+                // This is just tested manually
                 case "X":
                     Environment.Exit(0);
                     return "";
