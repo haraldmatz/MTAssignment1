@@ -36,6 +36,10 @@ namespace Assignment1.Util.Helpers
                    return AddCustomer();
                     break;
 
+                case "2":
+                    return UpdateCustomersLastName();
+                    break;
+
                 case "3":
                     return ShowCustomersThatCanBeDeleted();
                     break;
