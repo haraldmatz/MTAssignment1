@@ -114,6 +114,12 @@ namespace Assignment1.Test
 
         }
 
+        [TestCase]
+        public void AddCustomer()
+        {
+            customerManager.AddCustomer(new Customer{FirstName = "Sune", LastName = "Svensson"});
+        }
+
       
       
 
