@@ -30,7 +30,7 @@ namespace Assignment1.Test
             
             // Create Mock object
             var mockSetCustomerRepository = new Mock<ICustomerRepository>();
-            mockSetCustomerRepository.Setup(mr => mr.GetAllCusomers()).Returns(customerManager.Customers);
+            mockSetCustomerRepository.Setup(mr => mr.GetAllCusomers()).Returns(CustomerManager.Customers);
             var mockCustomerRepository = mockSetCustomerRepository.Object;
 
             // Act
@@ -38,7 +38,7 @@ namespace Assignment1.Test
 
             // Assert
             mockSetCustomerRepository.Verify(h => h.GetAllCusomers(), Times.Exactly(1));
-            Assert.AreEqual(allCustomers, customerManager.Customers);
+            Assert.AreEqual(allCustomers, CustomerManager.Customers);
         }
 
         [TestCase]

@@ -6,7 +6,7 @@ namespace CustomerHandler.Classes
     public class CustomerManager
     {
 
-        public List<Customer> Customers { get; set; }
+        public static List<Customer> Customers { get; set; }
 
         public CustomerManager()
         {

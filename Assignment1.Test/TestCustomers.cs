@@ -30,8 +30,8 @@ namespace Assignment1.Test
             // Assert 
             Assert.IsNotNull(customersResultList);
             Assert.AreEqual(2, customersResultList.Count);
-            Assert.AreEqual("Harald", customerManager.Customers[0].FirstName);
-            Assert.AreEqual("hans.hansson@test.se", customerManager.Customers[1].Email);
+            Assert.AreEqual("Harald", customersResultList[0].FirstName);
+            Assert.AreEqual("hans.hansson@test.se", customersResultList[1].Email);
         }
 
 
@@ -113,6 +113,7 @@ namespace Assignment1.Test
 
         }
 
+      
       
 
 
