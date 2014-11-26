@@ -117,7 +117,14 @@ namespace Assignment1.Test
         [TestCase]
         public void AddCustomer()
         {
-            customerManager.AddCustomer(new Customer{FirstName = "Sune", LastName = "Svensson"});
+            // Prepare
+            var customerToAdd = new Customer {FirstName = "Sune", LastName = "Svensson", Email = "sune@svensson.se"};
+
+            // Act
+            customerManager.AddCustomer(customerToAdd);
+
+            // Assert
+            Assert.AreEqual("sune@svensson.se" ,customerManager.Lookup(customerToAdd.Email).Email);
         }
 
       
