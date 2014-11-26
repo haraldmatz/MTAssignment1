@@ -71,6 +71,10 @@ namespace CustomerHandler.Classes
             return Customers;
         }
 
+        public void AddCustomer(Customer customer)
+        {
+            Customers.Add(customer);
+        }
      
     }
 }

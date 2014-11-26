@@ -86,12 +86,12 @@ namespace Assignment1.Util.Helpers
             var sb = new StringBuilder();
             Customer customer;
 
-          
-            //for (int row=1; row<=CustomerManager.GetHaraldAndHans().Count; row++)
-            //{
-            //    customer = CustomerManager.GetHaraldAndHans()[row - 1];
-            //    sb.Append(row + ". " + customer.FirstName + " " + customer.LastName + "\n");    
-            //}
+
+            for (int row = 1; row <= CustomerManager.GetHaraldAndHans().Count; row++)
+            {
+                customer = CustomerManager.GetHaraldAndHans()[row - 1];
+                sb.Append(row + ". " + customer.FirstName + " " + customer.LastName + "\n");
+            }
             
             sb.Append("\n\nPress any key\n");
             return sb.ToString();
