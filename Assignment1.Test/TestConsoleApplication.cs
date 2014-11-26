@@ -1,5 +1,6 @@
 ﻿using Assignment1.Util.Helpers;
 using CustomerHandler.Classes;
+using CustomerHandler.Helpers;
 using NUnit.Framework;
 
 
@@ -31,7 +32,7 @@ namespace Assignment1.Test
         public void TestInput_AddCustomer()
         {
             // Act 
-            string reply = MenuHelper.HandleInput("1");
+            string reply = MenuHelper.HandleInput("1", customerManager);
 
             // Assert
             Assert.AreEqual("Add Customer - Not implemented yet", reply.Substring(0, 34));
@@ -41,7 +42,7 @@ namespace Assignment1.Test
         public void TestInput_UpdateCustomer()
         {
             // Act 
-            string reply = MenuHelper.HandleInput("2");
+            string reply = MenuHelper.HandleInput("2",  customerManager);
 
             // Assert
             Assert.AreEqual("Update Customer - Not implemented yet", reply.Substring(0, 37));
@@ -53,7 +54,7 @@ namespace Assignment1.Test
         public void TestInput_DeleteCustomer()
         {
             // Act 
-            string reply = MenuHelper.HandleInput("3");
+            string reply = MenuHelper.HandleInput("3", customerManager);
 
             // Assert
             Assert.AreEqual("Delete Customer - Not implemented yet", reply.Substring(0, 37));
@@ -63,12 +64,13 @@ namespace Assignment1.Test
         public void TestInput_ListCustomers()
         {
             // Prepare
-            customerManager.AddHarald();
-            customerManager.AddHans();
+            CustomerManager.Customers.Clear();
+            CustomerManager.Customers.Add(CustomerHelper.GetHarald());
+            CustomerManager.Customers.Add(CustomerHelper.GetHans());
 
             // Act 
-            string reply = MenuHelper.HandleInput("4");
-
+            string reply = MenuHelper.HandleInput("4", customerManager );
+            
             // Assert
             Assert.AreEqual("1. Harald", reply.Substring(0,9));
         }
@@ -77,7 +79,7 @@ namespace Assignment1.Test
         public void TestInput_AddOtherIpunt()
         {
             // Act 
-            string reply = MenuHelper.HandleInput("XYZ");
+            string reply = MenuHelper.HandleInput("XYZ", customerManager);
 
             // Assert
             Assert.AreEqual("1. Add Customer", reply.Substring(0, 15));

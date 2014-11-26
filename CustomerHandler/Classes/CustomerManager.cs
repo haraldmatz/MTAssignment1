@@ -59,7 +59,7 @@ namespace CustomerHandler.Classes
 
         public static List<Customer> GetHaraldAndHans()
         {
-            var customerList = new List<Customer>();
+            var customerList =  new List<Customer>();
             customerList.Add(CustomerHelper.GetHarald());
             customerList.Add(CustomerHelper.GetHans());
            

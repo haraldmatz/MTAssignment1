@@ -21,7 +21,7 @@ namespace Assignment1.Util.Helpers
             return sb.ToString();
         }
 
-        public static string AddCustomer()
+        public static string AddCustomer(CustomerManager customerManager)
         {
             var sb = new StringBuilder();
             sb.Append("Add Customer - Not implemented yet \n");
@@ -29,7 +29,7 @@ namespace Assignment1.Util.Helpers
             return sb.ToString();
         }
 
-        public static string UpdateCustomer()
+        public static string UpdateCustomer(CustomerManager customerManager)
         {
             var sb = new StringBuilder();
             sb.Append("Update Customer - Not implemented yet \n");
@@ -37,7 +37,7 @@ namespace Assignment1.Util.Helpers
             return sb.ToString();
         }
 
-        public static string DeleteCustomer()
+        public static string DeleteCustomer(CustomerManager customerManager)
         {
             var sb = new StringBuilder();
             sb.Append("Delete Customer - Not implemented yet \n");
@@ -50,7 +50,7 @@ namespace Assignment1.Util.Helpers
             switch (key.ToUpper())
             {
                 case "1":
-                    return AddCustomer();
+                    return AddCustomer(customerManager);
                    break;
 
                 case "2":
@@ -81,7 +81,7 @@ namespace Assignment1.Util.Helpers
         }
 
         
-        public static string ListCustomers()
+        public static string ListCustomers(CustomerManager customerManager)
         {
             var sb = new StringBuilder();
             Customer customer;
