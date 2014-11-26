@@ -6,10 +6,8 @@ using CustomerHandler.Classes;
 
 namespace Assignment1.Util.Helpers
 {
-    public static class MenuHelper
+    public  class MenuHelper
     {
-    
-
         public static string GetMenu()
         {
             var sb = new StringBuilder();
@@ -47,7 +45,7 @@ namespace Assignment1.Util.Helpers
             return sb.ToString();
         }
        
-        public static string HandleInput(string key)
+        public static string HandleInput(string key, CustomerManager customerManager)
         {
             switch (key.ToUpper())
             {
@@ -57,17 +55,17 @@ namespace Assignment1.Util.Helpers
 
                 case "2":
 
-                    return UpdateCustomer();
+                    return UpdateCustomer(customerManager);
                 
                     break;
 
                 case "3":
-                    return DeleteCustomer();
+                    return DeleteCustomer(customerManager);
 
                     break;
 
                 case "4":
-                    return ListCustomers();
+                    return ListCustomers(customerManager);
                     break;
 
                 // This is just tested manually

@@ -81,6 +81,7 @@ namespace Assignment1.Test
         public void UpdateHans()
         {
             // Prepare
+            CustomerManager.Customers.Clear();
             customerManager.AddHarald();
             customerManager.AddHans();
           
@@ -91,7 +92,7 @@ namespace Assignment1.Test
             customerManager.Update(customerToUpdate);
 
             // Assert 
-            Assert.AreEqual("Eriksson", customerManager.Customers[1].LastName);
+            Assert.AreEqual("Eriksson", CustomerManager.Customers[1].LastName);
 
         }
 
